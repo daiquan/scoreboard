@@ -1,7 +1,9 @@
 import streamlit as st
 from datetime import datetime
 import json 
-from helper import *
+from helper.st_helper import *
+from helper.localFile import *
+
 
 # Initialize session state for kid's info, score, log, tasks
 if 'kid_name' not in st.session_state:
@@ -15,6 +17,9 @@ if 'log' not in st.session_state:
 if 'tasks' not in st.session_state:
     st.session_state.tasks = {}
 
+
+loaded_data = load_session_state_from_local_file()
+st.session_state.update(loaded_data)
 
 # Function to add an entry to the log
 def add_to_log(action, points):
@@ -44,6 +49,7 @@ with left_col:
     if st.button("Apply"):
         st.session_state.score += adjustment
         add_to_log("Score adjusted", adjustment)
+        save_session_state_to_local_file(st.session_state.to_dict())
         st.rerun()
 
 
@@ -63,11 +69,13 @@ if st.session_state.tasks:
             if st.button(f"{task_name} ({task_score})"):
                 st.session_state.score += task_score
                 add_to_log(f"Completed task '{task_name}'", task_score)
+                save_session_state_to_local_file(st.session_state.to_dict())
                 st.rerun()
         with col2:
             if st.button(f"delete {task_name}"):
                 del st.session_state.tasks[task_name]
                 st.success(f"Task '{task_name}' deleted!")
+                save_session_state_to_local_file(st.session_state.to_dict())
                 st.rerun()
 
 
