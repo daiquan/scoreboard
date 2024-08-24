@@ -1,33 +1,120 @@
 {
-    "log": [
-        {
-            "timestamp": "2024-08-24 12:34:45",
-            "action": "Score adjusted",
-            "points": 2
-        },
-        {
-            "timestamp": "2024-08-24 12:34:51",
-            "action": "Score adjusted",
-            "points": 4
-        },
-        {
-            "timestamp": "2024-08-24 12:35:02",
-            "action": "Money adjusted",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 12:35:10",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 12:35:11",
-            "action": "Completed task 'test1'",
-            "points": 1
-        }
-    ],
+    "deletePiano": false,
+    "deleteScreen time": false,
     "kid_name": "Cindy",
     "kid_age": 5,
-    "score": 3,
-    "tasks": {}
+    "log": [
+        {
+            "timestamp": "2024-08-24 16:37:14",
+            "action": "Deleted task 'Piano'",
+            "points": 5
+        },
+        {
+            "timestamp": "2024-08-24 16:37:16",
+            "action": "Completed task 'Screen time'",
+            "points": -1
+        },
+        {
+            "timestamp": "2024-08-24 16:37:17",
+            "action": "Completed task 'Screen time'",
+            "points": -1
+        },
+        {
+            "timestamp": "2024-08-24 16:38:35",
+            "action": "Deleted task 'Screen time'",
+            "points": -1
+        },
+        {
+            "timestamp": "2024-08-24 16:53:17",
+            "action": "Deleted task 'test3343'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 16:53:18",
+            "action": "Deleted task 'test3'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 16:53:37",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:20:25",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:20:30",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:20:56",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:21:01",
+            "action": "Deleted task 'testsetste'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:22:53",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:23:24",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:23:40",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:25:38",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:25:49",
+            "action": "Deleted task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:51:14",
+            "action": "Completed task 'dd'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:51:15",
+            "action": "Completed task 't2sdfsdf'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:51:15",
+            "action": "Completed task 'dfgdfg'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 18:51:36",
+            "action": "Score changed",
+            "points": 2
+        }
+    ],
+    "delete test": true,
+    "default_value": 0,
+    "tasks": {
+        "dd": 1,
+        "t2sdfsdf": 1,
+        "dfgdfg": 1
+    },
+    "Screen time": false,
+    "delete_Piano": false,
+    "test": false,
+    "score": 26,
+    "delete_test": true
 }

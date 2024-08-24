@@ -36,33 +36,68 @@ def add_to_log(action, points):
 st.title("🌟 Little Star's Scoreboard! 🌟")
 st.caption("_Cindy's_ Scoreboard")
 
-
+#layout
 top_col1, top_col2 = st.columns(2)
 with top_col2:
     left_col, right_col = st.columns([3,1])
 
+#panels
+def changeScorePanel():
+    option = st.radio("5 pts → $1", ("#️⃣", '💰'),horizontal=True)
+    # Score Adjustment
+
+    adjustment = st.number_input("Change:", min_value=-100, max_value=100, value=0)
+    if st.button("Apply"):
+        if option == '#️⃣':
+            st.session_state.score += adjustment
+            add_to_log("Score changed", adjustment)
+
+        if option == '💰':
+            st.session_state.score += adjustment * 5
+            add_to_log("Money changed", adjustment)
+
+        save_session_state_to_local_file(st.session_state.to_dict())
+        st.rerun()
+
+def delTask(task_name):
+    del st.session_state.tasks[task_name]
+    st.success(f"Task '{task_name}' deleted!")
+    add_to_log(f"Deleted task '{task_name}'", task_score)
+    save_session_state_to_local_file(st.session_state.to_dict())
+    st.rerun()
+
+def createTask(task_name, task_score):
+    st.session_state.score += task_score
+    add_to_log(f"Completed task '{task_name}'", task_score)
+    save_session_state_to_local_file(st.session_state.to_dict())
+    st.rerun()
 with top_col1:
     st.markdown(f"# Total Score: {st.session_state.score}")
     st.markdown(f"### = ${st.session_state.score / 5.0}")
-    deductMoney = st.number_input("deduct $: ",min_value=-100, max_value=100, value=0)
-    if st.button("Apply $"):
-        st.session_state.score -= deductMoney * 5
-        add_to_log("Money adjusted", deductMoney)
-        save_session_state_to_local_file(st.session_state.to_dict())
-        st.rerun()
-with right_col:
-    if st.button("Create a Task"):
-        create_task()
-with left_col:
-    # Score Adjustment
-    adjustment = st.number_input("Adjust score:", min_value=-100, max_value=100, value=0)
-    if st.button("Apply"):
-        st.session_state.score += adjustment
-        add_to_log("Score adjusted", adjustment)
-        save_session_state_to_local_file(st.session_state.to_dict())
-        st.rerun()
+    with st.expander("Change Score or Money"):
+        changeScorePanel()  
 
+        
+with top_col2:
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Create a Task"):
+            create_task()
+    with col2:
+        on = st.toggle("Manage Tasks")
 
+    col3, col4 = st.columns(2)
+    with col3:
+        if st.session_state.tasks:
+            for task_name, task_score in st.session_state.tasks.items():
+                if st.button(f"{task_name} ({task_score})"):
+                    createTask(task_name, task_score)
+    with col4:
+        if on and st.session_state.tasks:
+            for task_name, task_score in st.session_state.tasks.items():
+                if st.button(f"❌ {task_name}"):
+                    delTask(task_name)
+    
 
     
 
@@ -71,22 +106,7 @@ if st.session_state.kid_name == "":
 
 
 # Display and manage existing tasks
-if st.session_state.tasks:
-    st.subheader("Tasks:")
-    for task_name, task_score in st.session_state.tasks.items():
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button(f"{task_name} ({task_score})"):
-                st.session_state.score += task_score
-                add_to_log(f"Completed task '{task_name}'", task_score)
-                save_session_state_to_local_file(st.session_state.to_dict())
-                st.rerun()
-        with col2:
-            if st.button(f"delete {task_name}"):
-                del st.session_state.tasks[task_name]
-                st.success(f"Task '{task_name}' deleted!")
-                save_session_state_to_local_file(st.session_state.to_dict())
-                st.rerun()
+
 
 
 # Log Section
