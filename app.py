@@ -35,26 +35,23 @@ with top_col2:
 with top_col1:
     st.markdown(f"# Total Score: {st.session_state.score}")
     st.markdown(f"### = ${st.session_state.score / 5.0}")
+with right_col:
+    if st.button("Create a Task"):
+        create_task()
 with left_col:
     # Score Adjustment
     adjustment = st.number_input("Adjust score:", min_value=-100, max_value=100, value=0)
     if st.button("Apply"):
         st.session_state.score += adjustment
         add_to_log("Score adjusted", adjustment)
-with right_col:
-    if st.button("Create a Task"):
-        create_task()
+        st.rerun()
+
 
 
     
 
 if st.session_state.kid_name == "":
     introduceYou()
-
-
-
-
-
 
 
 # Display and manage existing tasks
@@ -66,6 +63,7 @@ if st.session_state.tasks:
             if st.button(f"{task_name} ({task_score})"):
                 st.session_state.score += task_score
                 add_to_log(f"Completed task '{task_name}'", task_score)
+                st.rerun()
         with col2:
             if st.button(f"delete {task_name}"):
                 del st.session_state.tasks[task_name]
