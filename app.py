@@ -19,7 +19,11 @@ if 'tasks' not in st.session_state:
 
 
 loaded_data = load_session_state_from_local_file()
-st.session_state.update(loaded_data)
+if loaded_data:
+    st.session_state.update(loaded_data)
+else:
+    save_session_state_to_local_file(st.session_state.to_dict())
+    loaded_data = load_session_state_from_local_file()
 
 # Function to add an entry to the log
 def add_to_log(action, points):
@@ -40,6 +44,12 @@ with top_col2:
 with top_col1:
     st.markdown(f"# Total Score: {st.session_state.score}")
     st.markdown(f"### = ${st.session_state.score / 5.0}")
+    deductMoney = st.number_input("deduct $: ",min_value=-100, max_value=100, value=0)
+    if st.button("Apply $"):
+        st.session_state.score -= deductMoney * 5
+        add_to_log("Money adjusted", deductMoney)
+        save_session_state_to_local_file(st.session_state.to_dict())
+        st.rerun()
 with right_col:
     if st.button("Create a Task"):
         create_task()

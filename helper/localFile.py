@@ -1,4 +1,5 @@
 import json
+import os
 
 def save_session_state_to_local_file(session_state_dict):
 
@@ -12,6 +13,8 @@ def save_session_state_to_local_file(session_state_dict):
 
         
 def load_session_state_from_local_file():
+    if not os.path.exists('streamlit_session_state.json') or os.stat('streamlit_session_state.json').st_size == 0:
+        return None 
     # Try to load data from the file 
     with open('streamlit_session_state.json', 'r') as f:
         loaded_data = json.load(f)

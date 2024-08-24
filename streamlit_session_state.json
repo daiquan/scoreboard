@@ -1,81 +1,33 @@
 {
-    "kid_age": 5,
-    "score": 18,
     "log": [
         {
-            "timestamp": "2024-08-24 11:03:41",
+            "timestamp": "2024-08-24 12:34:45",
             "action": "Score adjusted",
             "points": 2
         },
         {
-            "timestamp": "2024-08-24 11:08:01",
+            "timestamp": "2024-08-24 12:34:51",
             "action": "Score adjusted",
-            "points": -4
+            "points": 4
         },
         {
-            "timestamp": "2024-08-24 11:29:27",
+            "timestamp": "2024-08-24 12:35:02",
+            "action": "Money adjusted",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-24 12:35:10",
             "action": "Completed task 'test1'",
             "points": 1
         },
         {
-            "timestamp": "2024-08-24 11:29:29",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:29:45",
-            "action": "Score adjusted",
-            "points": 3
-        },
-        {
-            "timestamp": "2024-08-24 11:30:14",
-            "action": "Completed task 'test2'",
-            "points": -1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:15",
-            "action": "Completed task 'test2'",
-            "points": -1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:16",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:16",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:17",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:17",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:17",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:17",
-            "action": "Completed task 'test1'",
-            "points": 1
-        },
-        {
-            "timestamp": "2024-08-24 11:30:18",
+            "timestamp": "2024-08-24 12:35:11",
             "action": "Completed task 'test1'",
             "points": 1
         }
     ],
-    "tasks": {
-        "test2": -1,
-        "test1": 1
-    },
-    "kid_name": "Cindy"
+    "kid_name": "Cindy",
+    "kid_age": 5,
+    "score": 3,
+    "tasks": {}
 }
