@@ -1,0 +1,165 @@
+{
+    "tasks": {},
+    "log_display": [
+        {
+            "timestamp": "2024-08-25 13:00:34",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:33",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:30",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:29",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:28",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:28",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:27",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:21",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:16",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:12",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:11",
+            "action": "Completed task 'test'",
+            "points": 1
+        }
+    ],
+    "kid_name": "Cindy",
+    "kid_age": 5,
+    "score": 26,
+    "log": [
+        {
+            "timestamp": "2024-08-25 13:00:11",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:12",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:16",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:21",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:22",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:27",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:28",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:28",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:29",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:30",
+            "action": "Score changed",
+            "points": 2
+        },
+        {
+            "timestamp": "2024-08-25 13:00:33",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:34",
+            "action": "Completed task 'test'",
+            "points": 1
+        },
+        {
+            "timestamp": "2024-08-25 13:00:36",
+            "action": "Deleted task 'test'",
+            "points": 1
+        }
+    ]
+}
