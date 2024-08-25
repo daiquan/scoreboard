@@ -13,7 +13,10 @@ def save_session_state_to_local_file(file_name,session_state_dict):
 
         
 def load_session_state_from_local_file(file_name):
-    file_path = f"profiles/{file_name}"
+    folder_path = "profiles"
+    file_path = f"{folder_path}/{file_name}"
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
     if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
         return None 
     # Try to load data from the file 
