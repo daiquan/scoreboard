@@ -14,23 +14,28 @@ if 'score' not in st.session_state:
     st.session_state.score = 0
 if 'log' not in st.session_state:
     st.session_state.log = []
+if 'log_display' not in st.session_state:
+    st.session_state.log_display = []
 if 'tasks' not in st.session_state:
     st.session_state.tasks = {}
 
 
-loaded_data = load_session_state_from_local_file()
+loaded_data = load_session_state_from_local_file(st.session_state.kid_name)
 if loaded_data:
     st.session_state.update(loaded_data)
 else:
-    save_session_state_to_local_file(st.session_state.to_dict())
-    loaded_data = load_session_state_from_local_file()
+    save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
+    loaded_data = load_session_state_from_local_file(st.session_state.kid_name)
 
+#load logs
+# Keep only the last 20 log entries
+st.session_state.log_display = st.session_state.log[-20:][::-1] 
+st.session_state.log = st.session_state.log[-20:]
 # Function to add an entry to the log
 def add_to_log(action, points):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     st.session_state.log.append({"timestamp": timestamp, "action": action, "points": points})
-    # Keep only the last 20 log entries
-    st.session_state.log = st.session_state.log[-20:]
+
 
 # Kid's Information Section
 st.title("🌟 Little Star's Scoreboard! 🌟")
@@ -59,20 +64,20 @@ def changeScorePanel():
             st.session_state.score += adjustment * 5
             add_to_log("Money changed", adjustment)
 
-        save_session_state_to_local_file(st.session_state.to_dict())
+        save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
         st.rerun()
 
 def delTask(task_name):
     del st.session_state.tasks[task_name]
     st.success(f"Task '{task_name}' deleted!")
     add_to_log(f"Deleted task '{task_name}'", task_score)
-    save_session_state_to_local_file(st.session_state.to_dict())
+    save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
     st.rerun()
 
 def createTask(task_name, task_score):
     st.session_state.score += task_score
     add_to_log(f"Completed task '{task_name}'", task_score)
-    save_session_state_to_local_file(st.session_state.to_dict())
+    save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
     st.rerun()
 with top_col1:
     st.markdown(f"#Score: {st.session_state.score}")
@@ -114,7 +119,7 @@ if st.session_state.kid_name == "":
 
 # Log Section
 with st.expander("Logs"):
-    if st.session_state.log:
-        st.table(st.session_state.log)
+    if st.session_state.log_display:
+        st.table(st.session_state.log_display)
     else:
         st.write("No log entries yet.")

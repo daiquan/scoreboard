@@ -22,5 +22,5 @@ def create_task():
     if taskBtn:
         st.session_state.tasks[new_task_name] = new_task_score
         st.success(f"Task '{new_task_name}' created!")
-        save_session_state_to_local_file(st.session_state.to_dict())
+        save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
         st.rerun()
