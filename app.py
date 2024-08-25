@@ -80,7 +80,7 @@ def createTask(task_name, task_score):
     save_session_state_to_local_file(st.session_state.kid_name,st.session_state.to_dict())
     st.rerun()
 with top_col1:
-    st.markdown(f"#Score: {st.session_state.score}")
+    st.markdown(f"# Score: {st.session_state.score}")
     st.markdown(f"### = ${st.session_state.score / 5.0}")
     with st.expander("Change Score or Money"):
         changeScorePanel()  
