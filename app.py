@@ -7,7 +7,7 @@ from helper.localFile import *
 
 # Initialize session state for kid's info, score, log, tasks
 if 'kid_name' not in st.session_state:
-    st.session_state.kid_name = "Cindy"
+    st.session_state.kid_name = "Cindy Dai"
 if 'kid_age' not in st.session_state:
     st.session_state.kid_age = 5
 if 'score' not in st.session_state:
@@ -39,7 +39,7 @@ def add_to_log(action, points):
 
 # Kid's Information Section
 st.title("🌟 Little Star's Scoreboard! 🌟")
-st.caption("_Cindy's_ Scoreboard")
+st.caption(f"_{st.session_state.kid_name}'s_ Scoreboard")
 
 #layout
 stars = "🌟" * (int)(st.session_state.score/5)
