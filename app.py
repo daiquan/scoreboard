@@ -25,8 +25,8 @@ def save_to_firedb():
 
 #load logs
 # Keep only the last 20 log entries
-# st.session_state.log_display = st.session_state.log[-20:][::-1] 
-# st.session_state.log = st.session_state.log[-20:]
+st.session_state['cindy_dai']['log_display'] = st.session_state['cindy_dai']['log'][-20:][::-1] 
+st.session_state['cindy_dai']['log'] = st.session_state['cindy_dai']['log'][-20:]
 # Function to add an entry to the log
 def add_to_log(action, points):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
