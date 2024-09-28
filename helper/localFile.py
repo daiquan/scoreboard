@@ -39,7 +39,20 @@ def init_firedb():
         print("Firebase app already initialized. Skipping initialization.")
     except ValueError:
         # If no app exists, initialize it
-        cred = credentials.Certificate("./firebase/scoreboard-83388-firebase-adminsdk-h2hvp-d9206869d5.json")
+        firebase_config = {
+            "type": st.secrets["firebase"]["type"],
+            "project_id": st.secrets["firebase"]["project_id"],
+            "private_key_id": st.secrets["firebase"]["private_key_id"],
+            "private_key": st.secrets["firebase"]["private_key"],
+            "client_email": st.secrets["firebase"]["client_email"],
+            "client_id": st.secrets["firebase"]["client_id"],
+            "auth_uri": st.secrets["firebase"]["auth_uri"],
+            "token_uri": st.secrets["firebase"]["token_uri"],
+            "auth_provider_x509_cert_url": st.secrets["firebase"]["auth_provider_x509_cert_url"],
+            "client_x509_cert_url": st.secrets["firebase"]["client_x509_cert_url"]
+        }
+        # cred = credentials.Certificate("./firebase/scoreboard-83388-firebase-adminsdk-h2hvp-d9206869d5.json")
+        cred = credentials.Certificate(firebase_config)
         firebase_admin.initialize_app(cred)
         print("Firebase app initialized.")
     fdb = firestore.client()
