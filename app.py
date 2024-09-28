@@ -31,6 +31,8 @@ st.session_state['cindy_dai']['log'] = st.session_state['cindy_dai']['log'][-20:
 def add_to_log(action, points):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     st.session_state['cindy_dai']['log'].append({"timestamp": timestamp, "action": action, "points": points})
+    save_to_firedb()
+    st.rerun()
 
 
 # Kid's Information Section
@@ -75,32 +77,36 @@ def createTask(task_name, task_score):
     add_to_log(f"Completed task '{task_name}'", task_score)
     save_to_firedb()
     st.rerun()
+
+
 with top_col1:
-    st.markdown(f"# Score: {st.session_state['cindy_dai']['score']}")
-    st.markdown(f"### = ${st.session_state['cindy_dai']['score'] / 5.0}")
-    with st.expander("Change Score or Money"):
-        changeScorePanel()  
+    with st.container(border=1):
+        st.markdown(f"# Score: {st.session_state['cindy_dai']['score']}")
+        st.markdown(f"### = ${st.session_state['cindy_dai']['score'] / 5.0}")
+        with st.expander("Change Score or Money"):
+            changeScorePanel()  
 
         
 with top_col2:
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("Create a Task"):
-            create_task()
-    with col2:
-        on = st.toggle("Manage Tasks")
+    with st.container(border=1):
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("Create a Task",type="primary"):
+                create_task()
+        with col2:
+            on = st.toggle("Manage Tasks")
 
-    col3, col4 = st.columns(2)
-    with col3:
-        if st.session_state['cindy_dai']['tasks']:
-            for task_name, task_score in st.session_state['cindy_dai']['tasks'].items():
-                if st.button(f"{task_name} ({task_score})"):
-                    createTask(task_name, task_score)
-    with col4:
-        if on and st.session_state['cindy_dai']['tasks']:
-            for task_name, task_score in st.session_state['cindy_dai']['tasks'].items():
-                if st.button(f"❌ {task_name}"):
-                    delTask(task_name)
+        col3, col4 = st.columns(2)
+        with col3:
+            if st.session_state['cindy_dai']['tasks']:
+                for task_name, task_score in st.session_state['cindy_dai']['tasks'].items():
+                    if st.button(f"{task_name} ({task_score})",type="secondary"):
+                        createTask(task_name, task_score)
+        with col4:
+            if on and st.session_state['cindy_dai']['tasks']:
+                for task_name, task_score in st.session_state['cindy_dai']['tasks'].items():
+                    if st.button(f"❌ {task_name}"):
+                        delTask(task_name)
     
 
     
