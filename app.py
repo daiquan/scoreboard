@@ -33,6 +33,10 @@ def add_to_log(action, points):
     st.session_state['cindy_dai']['log'].append({"timestamp": timestamp, "action": action, "points": points})
     save_to_firedb()
     st.rerun()
+def undo_last():
+    last = st.session_state['cindy_dai']['log'].pop()
+    st.session_state['cindy_dai']['score'] = st.session_state['cindy_dai']['score']-last['points']
+    st.rerun()
 
 
 # Kid's Information Section
@@ -118,7 +122,8 @@ if st.session_state['cindy_dai']['kid_name'] == "":
 # Display and manage existing tasks
 
 
-
+if st.button("Undo last", type="primary"):
+    undo_last()
 # Log Section
 with st.expander("Logs"):
     if st.session_state['cindy_dai']['log_display']:
