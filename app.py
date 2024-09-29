@@ -126,7 +126,7 @@ if st.session_state['cindy_dai']['kid_name'] == "":
 
 
 # Log Section
-with st.expander("Logs"):
+with st.expander("Logs", expanded=True):
     if st.session_state['cindy_dai']['log_display']:
         st.table(st.session_state['cindy_dai']['log_display'])
     else:
