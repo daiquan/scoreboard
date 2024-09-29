@@ -89,6 +89,8 @@ with top_col1:
         st.markdown(f"### = ${st.session_state['cindy_dai']['score'] / 5.0}")
         with st.expander("Change Score or Money"):
             changeScorePanel()  
+        if st.button("Undo last", type="primary"):
+            undo_last()
 
         
 with top_col2:
@@ -122,8 +124,7 @@ if st.session_state['cindy_dai']['kid_name'] == "":
 # Display and manage existing tasks
 
 
-if st.button("Undo last", type="primary"):
-    undo_last()
+
 # Log Section
 with st.expander("Logs"):
     if st.session_state['cindy_dai']['log_display']:
